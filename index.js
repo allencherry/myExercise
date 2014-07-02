@@ -1,53 +1,149 @@
-//Ê±¼äÈÕÆÚÑ§Ï°Òªµã£º
-/**1.DateÀàĞÍ£¬Í¨ÓÃµÄ·½·¨£¬¸ñÊ½»¯·½·¨£¬×é¼ş·½·¨
-ECMAScriptÌá¹©ÁËÁËDateÀàĞÍÀ´´¦ÀíÊ±¼äºÍÈÕÆÚ¡£DateÀàĞÍÄÚÖÃÒ»ÏµÁĞ»ñÈ¡ºÍÉèÖÃÈÕÆÚÊ±¼äµÄĞÅÏ¢µÄ·½·¨¡£
-DateÀàĞÍÊ¹ÓÃUTC£¨coordinated Universal Time£¬¹ú¼ÊĞ­µ÷Ê±¼ä£¨ÓÖ³ÆÊÀ½çÍ³Ò»Ê±¼ä£©1970Äê1ÔÂ1ÈÕÎçÒ¹ÁãÊ±ÔÚÊ¹ÓÃÕâÖÖÊı¾İ´æ´¢¸ñÊ½µÄÌõ¼şÏÂ£¬DateÀàĞÍ±£´æµÄÈÕÆÚÄÜ¹»¾«È·µ½1970Äê1ÔÂ1ÈÕÇ°ºó285616nian
+/**regular expression æ˜¯æè¿°å­—ç¬¦æ¨¡å¼çš„å¯¹è±¡ã€‚EcMaScriptçš„RegExpç±»è¡¨ç¤ºæ­£åˆ™è¡¨è¾¾å¼ï¼Œè€ŒStringå’ŒRegExpdéƒ½å®šä¹‰äº†ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼è¿›è¡Œå¼ºå¤§çš„æ¨¡å¼åŒ¹é…å’Œæ–‡æœ¬æ£€ç´¢ä¸æ›¿æ¢çš„å‡½æ•°ã€‚
+åˆ›å»ºæ­£åˆ™è¡¨è¾¾å¼ï¼šnew ä¸å­—é¢é‡*/
+//var a = new RegExp('box');
+//var b = new RegExp('box','ig');
+//alert(a);
+//var c = /box/;
+//var d = /box/ig;
+//alert(c);
+//alert(d);
+////æµ‹è¯•æ­£åˆ™è¡¨è¾¾å¼RegExpå¯¹è±¡åŒ…å«ä¸¤ä¸ªæ–¹æ³•ï¼štest() & exec(),ç”¨æ¥æµ‹è¯•å­—ç¬¦çªœåŒ¹é…ã€‚
+//var e = new RegExp('box','i');
+//var str = 'This is a Box!';
+//alert(e.test(str));
+//var f = /box/i;
+//alert(f.test(str));
+
+//ä¹Ÿå¯ä»¥ä½¿ç”¨ä¸€æ¡è¯­å¥å®ç°æ­£åˆ™åŒ¹é…
+//alert(/box/i.test('This is a Box!'));alert(f.exec(str));
+
+//é™¤äº†RegExpæä¾›çš„test(),exec(),å¤–Stringå¯¹è±¡ä¹Ÿæä¾›äº†4ä¸ªä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼çš„æ–¹æ³•
+//match()è¿”å›patternä¸­çš„å­ä¸²æˆ–null,replace()ç”¨replacementæ›¿æ¢pattern,search()è¿”å›å­—ç¬¦ä¸²ä¸­patternå¼€å§‹ä½ç½®,split()è¿”å›å­—ç¬¦ä¸²æŒ‡å®špatternæ‹†åˆ†çš„æ•°ç»„,
+//var str1 = 'This is a Box!, That is a Box too';
+//alert(str1.match(b));
+//alert(str1.match(b).length);
+//alert(str1.search(b));
+//alert(str1.split(b));
+
+//RegExpå¯¹è±¡çš„é™æ€å±æ€§
+//input $_,lastMatch $&, lastParen $+, leftContext $` ,multiline $*, rightContext $',
+//var pattern = /(g)oogle/;
+///var str2 = 'This is googleï¼';
+//pattern.test(str2); //æ‰§è¡Œä¸€ä¸‹
+//alert(RegExp.input); //This is googleï¼
+//alert(RegExp.leftContext); //This is
+//alert(RegExp.rightContext); //ï¼
+//alert(RegExp.lastMatch); //google
+//alert(RegExp.lastParen); //g
+//alert(RegExp.multiline); //false
+//ä»¥ä¸Šå¯ä»¥ç”¨çŸ­åæ¥å†™
+/**alert(RegExp['$_']);
+alert(RegExp["$'"]);
+alert(RegExp["$`"]);
+//alert(RegExP["$&"]);
+alert(RegExp['$+']);*/
+
+/**
+RegExpå¯¹è±¡çš„å®ä¾‹å±æ€§ï¼šglobal,ignoreCase,lastIndex,multiline,
+*/
+//var pattern1 = /google/ig;
+//alert(pattern1.global);
+//alert(pattern1.ignoreCase);
+//alert(pattern1.nultiline);
+//alert(pattern1.lastIndex);
+//alert(pattern.source);
+
+/**
+æ­£åˆ™è¡¨è¾¾å¼å…ƒå­—ç¬¦æ˜¯åŒ…å«ç‰¹æ®Šå«æ„çš„å­—ç¬¦ã€‚å®ƒä»¬æœ‰ä¸€äº›ç‰¹æ®ŠåŠŸèƒ½ï¼Œå¯ä»¥æ§åˆ¶åŒ¹é…æ¨¡å¼çš„æ–¹å¼ã€‚ã€‚åæ–œæ åçš„å…ƒå­—ç¬¦å°†å¤±å»å…¶ç‰¹æ®Šå«æ„ã€‚
+.,[a-z0-9],[^a-z0-9],\d,\D,\w,\W,ä»¥ä¸Šå­—ç¬¦ç±»ï¼šå•ä¸ªå­—ç¬¦å’Œæ•°å­—ï¼Œ\0,\b,\f,\n,\r,\t\,\s\
+æ­£åˆ™è¡¨è¾¾å¼ç±»å‹ï¼šå­—ç¬¦ç±»ï¼šå•ä¸ªå­—ç¬¦å’Œæ•°å­—ï¼Œå­—ç¬¦ç±»ï¼šç©ºç™½å­—ç¬¦ï¼Œå­—ç¬¦å‹ï¼šé”šå­—ç¬¦ï¼Œ^è¡Œé¦–åŒ¹é…,$è¡Œå°¾åŒ¹é…,\Aåªæœ‰åŒ¹é…å­—ç¬¦ä¸²å¼€å¤´å¤„,\båŒ¹é…å•è¯è¾¹ç•Œï¼Œè¯åœ¨ã€ã€‘å†…æ—¶æ— æ•ˆ,
+\B,\G,\Z,\z,å­—ç¬¦ç±»ï¼šé‡å¤å­—ç¬¦ï¼Œx?,x*,x+,(xyz)+,x{m,n},å­—ç¬¦ç±»ï¼šæ›¿ä»£å­—ç¬¦this|where|logo|,è®°å½•å­—ç¬¦
 
 */
-//´´½¨ÈÕÆÚ
-//var a = new Date();
-//alert(a);
-//ÔÚµ÷ÓÃDate¹¹Ôì·½·¨¶ø²»´«²ÎÊıµÄÇé¿öÏÂ£¬ĞÂ½¨µÄ¶ÔÏó×Ô¶¯»ñÈ¡µ±Ç°µÄÊ±¼äºÍÈÕÆÚ¡£
-//EcmasScript Ìá¹©ÁËÁ½¸ö·½·¨£¬Date.parse()ºÍDate.UTC().Date.parse()·½·¨½ÓÊÜÒ»¸ö±íÊ¾ÈÕÆÚµÄ×Ö·û´®²ÎÊı£¬EcmA-262Ã»ÓĞ¶¨ÒåDate.parse(_)Ó¦¸ÃÖ§³ÖÄÇÖÖÈÕÆÚ¸ñÊ½£¬Òò´Ë·½·¨µÄĞĞÎªÒòÊµÏÖ¶øÒì£¬ÒòµØÇø¶øÒì
-//alert(Date.parse('6/13/2011'));
-//alert(Date.parse());
-//alert(Date.parse('May 25,2004'));
 
-//Èç¹ûÏëÊä³öÖ¸¶¨µÄÈÕÆÚ£¬ÄÇÃ´°ÑDate.parse()´«ÈëDate¹¹Ôì·½·¨Àï
-var  b = new Date('6/13/2011'); //Ö±½Ó´«ÈË£¬Date.parse()ºóÌ¨±»µ÷ÓÃ
+/**var pattern = /g..gle/;
+var str = 'google';
+alert(pattern.test(str));*/
 
-//alert(b);
-var c = new Date(Date.parse('6/13/2011')); 
-//alert(c);
-//Date.UTC()·½·¨Í¬ÑùÒ²·µ»Ø±íÊ¾ÈÕÆÚµÄºÁÃëÊı£¬
-//alert(Date.UTC(2011,11));
-//alert(Date.UTC());
-
-//ÓëÆäËüÀàĞÍÒ»Ñù£¬Date ÀàĞÍÒ²ÖØĞ´ÁËtoLocalString(),toString()ºÍValueOf()·½·¨£ºµ«ÕâĞ©·½·¨·µ»ØÖµÓëÆäËûÀàĞÍÖĞµÄ·½·¨²»Í¬
-
-//alert('toString:' + new Date(Date.UTC(2011,11)).toString());
-//alert('toLocaleString:' + new Date(Date.UTC(2011,11)).toLocaleString()); //°´±¾µØ¸ñÊ½Êä³ö
-
-//ÎåÖÖÈÕÆÚ¸ñÊ½»¯·½·¨ toDateString(),toTimeString(),toLocaleDateString(),toLocaleTimeString(),toUTCString(),ÒÔÌØ¶¨µÄ¸ñÊ½ÏÔÊ¾ÍêÕûµÄUTCÈÕÆÚ
-
-var d = new Date();
-//alert(d.toDateString());
-//alert(d.toTimeString());
-//alert(d.toLocaleDateString());
-//alert(d.toLocaleTimeString());
-//alert(d.toUTCString());
-//4.×é¼ş·½·¨£¬ÊÇÎªÎÒÃÇµ¥¶À»ñÈ¡ÄãÏëÒªµÄ¸÷ÖÖÊ±¼ä¡¢ÈÕÆÚ¶øÌá¹©µÄ·½·¨¡£×¢Òâ£ºÕâĞ©·½·¨ÖĞ£¬ÓĞ´øUTCµÄ£¬ÓĞ²»´øUTCµÄ¡£UTCÈÕÆÚÖ¸µÄÊÇÔÚÃ»ÓĞÊ±ÇøÆ«²îµÄÇé¿öÏÂµÄÈÕÆÚÖµ
-
-alert(b.getTime());
-alert(b.setTime(100));
-alert(b.getFullYear());
-alert(b.setFullYear(2012));
-alert(b.getMonth());
-alert(b.setMonth(11));
-alert(b.getDate());
-alert(b.setDate());
-alert(b.getTimezoneOffset()); //ÒÔÉÏ³ıÁËgetTimezoneOffset(),ÆäËü¶¼¾ßÓĞUTC¹¦ÄÜ£¬Ê±¼äĞ­µ÷Ê±¼ä
+//var pattern = /g.*gle/;
+//var pattern = /g[a-zA-Z_]*gle/;
+//var pattern = /g[^0-9]*gle/;
+//var pattern = /[a-z][A-Z]+/;
+//var pattern = /g\w*gle/;
+//var pattern = /google\d*/;
+//var pattern = /\D{7,}/;
+//var pattern = /^google$/;
+//var pattern = /goo\sgle/;
+//var pattern = /google\b/;
+//var pattern = /google|baidu|bing/;
+//var pattern = /(google){4,8}/;
+//var pattern = /8(.*)8/;
 
 
-ssssss
+/**
+var str = '8google8';
+str.match(pattern);
+alert(RegExp.$1);
+var result = str.replace(pattern,'<strong>$1<strong>');
+document.write(result);
+alert(pattern.test(str));
+
+*/
+//ï¼Ÿå·å…³é—­äº†è´ªå©ªåŒ¹é…ï¼Œåªæ›¿æ¢äº†ç¬¬ä¸€ä¸ª
+/**
+var pattern = /(.*)\s(.*)/;
+var str = 'google baidu';
+var result = str.replace(pattern,'$2 $1');
+document.write(result);
+
+var pattern = /[a-z]+/;
+var str = 'abcdefj';
+var result = str.replace(pattern,'xxx');
+alert(result);
+
+var pattern = /8(.+)8/g;
+var str = 'This is 8google8, That is 8google8, There is 8google8';
+var result = str.replace(pattern,'<strong>$1<strong>');
+document.write(result);
+*/
+/**
+ä½¿ç”¨execè¿”å›æ•°ç»„
+
+var pattern = /^[a-z]+\s[0-9]{4}$/i;
+var pattern = /^[a-z]+/i;
+
+var pattern = /^([a-z]+)\s([0-9]{4})$/i;
+
+
+var str = 'google 2012';
+alert(pattern.exec(str)[0]);
+alert(pattern.exec(str)[1]);
+alert(pattern.exec(str)[2]);
+*/
+
+/**
+æ•è·æ€§åˆ†ç»„å’Œéæ•è·æ€§åˆ†ç»„
+ä»å¤–åˆ°å†…è·å–ï¼ˆåˆ†ç»„åµŒå¥—ï¼‰ï¼Œ
+ä½¿ç”¨å‰ç»æ•è·
+
+
+var pattern = /(\d+)([a-z])/;
+var str = '123abc';
+alert(pattern.exec(str));
+
+var pattern1 = /(\d+)(?:[a-z])/;
+alert(pattern1.exec(str));
+
+var pattern = /(A?(B?(C?)))/;
+var str = 'ABC';
+alert(pattern.exec(str));
+*/
+
+
+
+
+
+
+
+
 
